@@ -59,3 +59,12 @@ Há vários lugares onde você pode compartilhar sua solução:
 Este desafio é totalmente gratuito. Por favor, compartilhe-o com qualquer pessoa que está querendo evoluir como dev, compartilhe nosso portal [DevMentor Brasil](https://www.devmentor.com.br/).
 
 **Hora de codar!** 🚀
+
+
+
+
+npm init
+
+npm i typescript -D
+
+npx tsc --init
