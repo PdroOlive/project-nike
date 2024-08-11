@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Kanit");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,6 +30,7 @@ body #header-field nav ul {
 body #header-field nav ul li {
   grid-row: 1;
   font-size: 1.6rem;
+  line-height: 1;
 }
 body #header-field button {
   background: transparent;
@@ -39,20 +40,27 @@ body #header-field button i {
   font-size: 2rem;
 }
 body main {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  gap: 4rem;
 }
 body main #section-texts {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  line-height: 1;
+  gap: 5rem;
+  width: 100%;
+  padding-inline: 1rem;
 }
 body main #section-texts h1 {
-  font-size: 6rem;
+  font-size: 4.7rem;
+  font-weight: 500;
   color: #333;
+  text-align: center;
 }
 body main #section-texts #div-spans {
   display: grid;
@@ -62,7 +70,62 @@ body main #section-texts #div-spans {
 body main #section-texts #div-spans span {
   justify-self: center;
   color: #333;
-  font-size: 1.9rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+body main #section-texts #div-spans span:last-child {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+body main #section-texts #div-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main #section-texts #div-btn button {
+  background: #333;
+  border: none;
+  height: 5.5rem;
+  width: 20%;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: white;
+  transition: all 300ms;
+}
+body main #section-texts #div-btn button:hover {
+  background: #fff;
+  border: 1px solid #333;
+  color: #333;
+}
+body main #section-texts #div-btn button:last-child {
+  background: #000;
+  transition: all 300ms;
+  width: 50%;
+}
+body main #section-texts #div-btn button:last-child:hover {
+  background: #fff;
+  border: 1px solid black;
+  color: #000;
+}
+body main #section-image {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5019607843);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.473);
+  overflow: hidden;
+}
+body main #section-image img {
+  width: 80%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1023px) {
+  main {
+    flex-direction: row;
+  }
 }
 
 /*# sourceMappingURL=output-store.css.map */

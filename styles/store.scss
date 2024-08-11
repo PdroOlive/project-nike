@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit');
-
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap');
 
 *
 {
@@ -8,6 +7,8 @@
     padding: 0;
     font-family: "Kanit", sans-serif;
 }
+
+$color-p: #333;
 
 :root
 {
@@ -39,6 +40,7 @@ body
                 {
                     grid-row: 1;
                     font-size: 1.6rem;
+                    line-height: 1;
                 }
             }
 
@@ -57,39 +59,117 @@ body
 
     main
     {
+        height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100%;
-        width: 100%;
+        gap: 4rem;
 
         #section-texts
         {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
+            line-height: 1;
+            gap: 5rem;
+            width: 100%;
+            padding-inline: 1rem;
+
 
             h1
             {
-                font-size: 6rem;
-                color: #333;
+                font-size: 4.7rem;
+                font-weight: 500;
+                color: $color-p;
+                text-align: center;
             }
             #div-spans
             {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
                 gap: 4rem;
+
                 span
                 {
                     justify-self: center;
-                    color: #333;
-
-                    font-size: 1.9rem;
+                    color: $color-p;
+                    font-weight: 400;
+                    font-size: 1.8rem;
                 }
+                span:last-child
+                {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                }
+            }
+
+            #div-btn
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button
+                {
+                    background: $color-p;
+                    border: none;
+                    height: 5.5rem;
+                    width: 20%;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    color: white;
+                    transition: all 300ms;
+                }
+
+                button:hover
+                {
+                    background: #fff;
+                    border: 1px solid $color-p;
+                    color: $color-p;
+                }
+                button:last-child
+                {
+                    background: #000;
+                    transition: all 300ms;
+                    width: 50%;
+                }
+                button:last-child:hover
+                {
+                    background: #fff;
+                    border: 1px solid black;
+                    color: #000;
+                }
+            }
+        }
+        
+        
+        #section-image
+        {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #00000080;
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.473);
+            overflow: hidden;
+            img
+            {
+                width: 80%;
+                object-fit: cover;
             }
         }
 
     }
 
+}
+
+
+@media screen and (min-width: 1023px)
+{
+    main
+    {
+        flex-direction: row;
+    }
 }
 
