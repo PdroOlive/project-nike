@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Kanit", sans-serif;
+}
+
+:root
+{
+    font-size: 62.5%;
+}
+
+body
+{
+    max-width: 100%;
+    height: 100vh;
+
+    #header-field
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+        border-bottom: 1px solid #00000010;
+        nav
+        {
+            ul
+            {
+                list-style: none;
+                display: grid;
+                align-items: center;
+                gap: 4rem;
+                
+                li
+                {
+                    grid-row: 1;
+                    font-size: 1.6rem;
+                }
+            }
+
+        }
+        button
+        {
+            background: transparent;
+            border: none;
+
+            i
+            {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    main
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        #section-texts
+        {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+
+            h1
+            {
+                font-size: 6rem;
+                color: #333;
+            }
+            #div-spans
+            {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 4rem;
+                span
+                {
+                    justify-self: center;
+                    color: #333;
+
+                    font-size: 1.9rem;
+                }
+            }
+        }
+
+    }
+
+}
+
