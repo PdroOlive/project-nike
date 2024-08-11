@@ -6,6 +6,12 @@
   font-family: "Kanit", sans-serif;
 }
 
+body main #section-image, body main #section-texts #div-btn, body main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 :root {
   font-size: 62.5%;
 }
@@ -40,20 +46,18 @@ body #header-field button i {
   font-size: 2rem;
 }
 body main {
-  height: 100%;
   width: 100%;
-  display: flex;
+  height: 100%;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 4rem;
 }
 body main #section-texts {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  align-items: center;
   line-height: 1;
   gap: 5rem;
-  width: 100%;
   padding-inline: 1rem;
 }
 body main #section-texts h1 {
@@ -61,6 +65,7 @@ body main #section-texts h1 {
   font-weight: 500;
   color: #333;
   text-align: center;
+  word-break: break-all;
 }
 body main #section-texts #div-spans {
   display: grid;
@@ -77,16 +82,11 @@ body main #section-texts #div-spans span:last-child {
   font-size: 2.5rem;
   font-weight: 700;
 }
-body main #section-texts #div-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 body main #section-texts #div-btn button {
+  width: 20%;
   background: #333;
   border: none;
   height: 5.5rem;
-  width: 20%;
   font-weight: 500;
   font-size: 1.6rem;
   color: white;
@@ -98,9 +98,9 @@ body main #section-texts #div-btn button:hover {
   color: #333;
 }
 body main #section-texts #div-btn button:last-child {
+  width: 50%;
   background: #000;
   transition: all 300ms;
-  width: 50%;
 }
 body main #section-texts #div-btn button:last-child:hover {
   background: #fff;
@@ -110,12 +110,10 @@ body main #section-texts #div-btn button:last-child:hover {
 body main #section-image {
   width: 100%;
   height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgba(0, 0, 0, 0.5019607843);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.473);
   overflow: hidden;
+  line-height: 1;
 }
 body main #section-image img {
   width: 80%;

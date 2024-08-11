@@ -10,6 +10,13 @@
 
 $color-p: #333;
 
+%display-align
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 :root
 {
     font-size: 62.5%;
@@ -59,21 +66,20 @@ body
 
     main
     {
-        height: 100%;
         width: 100%;
-        display: flex;
+        height: 100%;
+        @extend %display-align;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 4rem;
 
         #section-texts
         {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
+            align-items: center;
             line-height: 1;
             gap: 5rem;
-            width: 100%;
             padding-inline: 1rem;
 
 
@@ -83,6 +89,7 @@ body
                 font-weight: 500;
                 color: $color-p;
                 text-align: center;
+                word-break: break-all;
             }
             #div-spans
             {
@@ -106,15 +113,13 @@ body
 
             #div-btn
             {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @extend %display-align;
                 button
                 {
+                    width: 20%;
                     background: $color-p;
                     border: none;
                     height: 5.5rem;
-                    width: 20%;
                     font-weight: 500;
                     font-size: 1.6rem;
                     color: white;
@@ -129,9 +134,9 @@ body
                 }
                 button:last-child
                 {
+                    width: 50%;
                     background: #000;
                     transition: all 300ms;
-                    width: 50%;
                 }
                 button:last-child:hover
                 {
@@ -147,12 +152,11 @@ body
         {
             width: 100%;
             height: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @extend %display-align;
             background-color: #00000080;
             box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.473);
             overflow: hidden;
+            line-height: 1;
             img
             {
                 width: 80%;
@@ -163,6 +167,7 @@ body
     }
 
 }
+
 
 
 @media screen and (min-width: 1023px)
