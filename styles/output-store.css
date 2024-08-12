@@ -26,6 +26,16 @@ body #header-field nav ul li::after {
   transition: transform 0.3s ease-out;
 }
 
+body main #section-modal div:first-child div:nth-child(2) div button, body main #section-modal div:first-child div:nth-child(2) form button {
+  border: none;
+  height: 3.3rem;
+  width: 8rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
 :root {
   font-size: 62.5%;
 }
@@ -145,6 +155,7 @@ body main #section-texts #div-btn button {
   font-size: 1.6rem;
   color: white;
   transition: all 300ms;
+  cursor: pointer;
 }
 body main #section-texts #div-btn button:hover {
   background: #fff;
@@ -160,6 +171,87 @@ body main #section-texts #div-btn button:last-child:hover {
   background: #fff;
   border: 1px solid black;
   color: #000;
+}
+body main #section-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4235294118);
+  backdrop-filter: blur(4px);
+  transform: scale(1.3);
+  transition: all 300ms;
+}
+body main #section-modal div:first-child {
+  width: 65%;
+  height: 40%;
+  padding-inline: 2rem;
+  padding-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-content: space-between;
+  justify-items: center;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.384);
+}
+body main #section-modal div:first-child div:nth-child(2) {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+body main #section-modal div:first-child div:nth-child(2) form {
+  justify-self: flex-end;
+  padding-bottom: 3rem;
+}
+body main #section-modal div:first-child div:nth-child(2) form input {
+  background-color: #000;
+  color: white;
+  border: none;
+  text-indent: 0.7rem;
+  height: 3.3rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+body main #section-modal div:first-child div:nth-child(2) form input:focus {
+  outline: none;
+}
+body main #section-modal div:first-child div:nth-child(2) form button {
+  background-color: #000;
+  color: white;
+}
+body main #section-modal div:first-child div:nth-child(2) form button:hover {
+  background-color: white;
+  color: #000;
+  border: 1px solid #000;
+}
+body main #section-modal div:first-child div:nth-child(2) div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body main #section-modal div:first-child div:nth-child(2) div button {
+  background: #fff;
+  width: 30%;
+}
+body main #section-modal div:first-child div:nth-child(2) div button:last-child {
+  background: #000;
+  color: white;
+  width: 50%;
+}
+body main #section-modal div:first-child div:nth-child(2) div button:first-child:hover {
+  background: #000;
+  color: white;
+  border: 1px solid white;
+}
+body main #section-modal div:first-child div:nth-child(2) div button:last-child:hover {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
 }
 body main #section-image {
   width: 100%;
@@ -182,6 +274,9 @@ body main #section-image img:hover {
     flex-direction: row;
   }
   body main #section-texts {
+    width: 600px;
+  }
+  body main #section-modal div:first-child {
     width: 600px;
   }
   body main #section-image {

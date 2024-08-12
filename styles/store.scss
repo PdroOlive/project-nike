@@ -32,6 +32,17 @@ $color-p: #333;
     transition: transform 0.3s ease-out
 }
 
+%modalBTn
+{
+    border: none;
+    height: 3.3rem;
+    width: 8rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
 :root
 {
     font-size: 62.5%;
@@ -191,6 +202,7 @@ body
                     font-size: 1.6rem;
                     color: white;
                     transition: all 300ms;
+                    cursor: pointer;
                 }
 
                 button:hover
@@ -214,6 +226,111 @@ body
             }
         }
         
+        #section-modal
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0000006c;
+            backdrop-filter: blur(4px);
+            transform: scale(1.3);
+            // visibility: hidden;
+            // opacity: 0;
+            transition: all 300ms;
+            div:first-child
+            {
+                width: 65%;
+                height: 40%;
+                padding-inline: 2rem;
+                padding-bottom: 2rem;
+                background-color: #ffffff80;
+                backdrop-filter: blur(10px);
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                align-content: space-between;
+                justify-items: center;
+                box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.384);
+                div:nth-child(2)
+                {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+                    form
+                    {
+                        justify-self: flex-end;
+                        
+                        padding-bottom: 3rem;
+                        input
+                        {
+                            background-color: #000;
+                            color: white;
+                            border: none;
+                            text-indent: 0.7rem;
+                            height: 3.3rem;
+                            font-weight: 500;
+                            font-size: 1.4rem;
+                        }
+                        input:focus
+                        {
+                            outline: none;
+                        }
+                        
+                        button
+                        {
+                            background-color: #000;
+                            color: white;
+                            @extend %modalBTn;
+                        }
+                        button:hover
+                        {
+                            background-color: white;
+                            color: #000;
+                            border: 1px solid #000;
+                        }
+                    }
+                    
+                    div
+                    {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        button
+                        {
+                            background: #fff;
+                            @extend %modalBTn;
+                            width: 30%;
+                        }
+                        button:last-child
+                        {
+                            background: #000;
+                            color: white;
+                            width: 50%;
+
+                        }
+                        button:first-child:hover
+                        {
+                            background: #000;
+                            color: white;
+                            border: 1px solid white;
+                        }
+                        button:last-child:hover
+                        {
+                            background: #fff;
+                            color: #000;
+                            border: 1px solid #000;
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
         
         #section-image
         {
@@ -249,7 +366,13 @@ body
             {
                 width: 600px;
             }
-
+            #section-modal
+            {
+                div:first-child
+                {
+                    width: 600px;
+                }
+            }
             #section-image
             {
                 @extend %display-align;
