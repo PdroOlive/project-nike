@@ -17,6 +17,21 @@ $color-p: #333;
     justify-content: center;
 }
 
+%navAnimation
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    top: 55px;
+    bottom: -2px;
+    left: 11px;
+    background-color: rgb(0, 0, 0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out
+}
+
 :root
 {
     font-size: 62.5%;
@@ -26,28 +41,74 @@ body
 {
     max-width: 100%;
     height: 100vh;
-
+    @extend %display-align;
+    flex-direction: column;
     #header-field
     {
+        width: 100%;
+        background: #fff;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-inline: 1rem;
-        border-bottom: 1px solid #00000010;
+        border-bottom: 1px solid #0000002c;
+        line-height: 1;
+        margin-bottom: 5rem;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        
+
         nav
         {
+            visibility: hidden;
+            opacity: 0;
+            transform-origin: top;
+            background: #ffffff94;
+            backdrop-filter: blur(5px);
+            position: fixed;
+            top: 70px;
+            left: 0;
+            transition: all 300ms;
+            
             ul
             {
                 list-style: none;
                 display: grid;
+                grid-template-columns: repeat(1, 1fr);
                 align-items: center;
-                gap: 4rem;
+                gap: 2rem;
+                padding: 1rem;
+                line-height: 1;
                 
+                li:first-child
+                {
+                    padding-top: 1rem;
+                }
                 li
                 {
-                    grid-row: 1;
+                    border-bottom: 1px solid #0000002c;
+                    padding-bottom: 2rem;
                     font-size: 1.6rem;
-                    line-height: 1;
+                    cursor: pointer;
+                    
+                }
+                li::after
+                {
+                    @extend %navAnimation;
+                }
+                li:hover::after
+                {
+                    transform: scaleX(0.82);
+                    transform-origin: left;
+                }
+                li:nth-child(2)::after
+                {
+                    top: 112px;
+                }
+                li:last-child::after
+                {
+                    top: 169px;
                 }
             }
 
@@ -67,20 +128,23 @@ body
     main
     {
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         @extend %display-align;
         flex-direction: column;
-        gap: 4rem;
+        gap: 5rem;
 
         #section-texts
         {
             width: 100%;
+            min-height: 50%;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             align-items: center;
             line-height: 1;
-            gap: 5rem;
+            padding: 10rem 0 0 0;
+            padding-bottom: 5rem;
             padding-inline: 1rem;
+            
 
 
             h1
@@ -96,6 +160,8 @@ body
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
                 gap: 4rem;
+                margin-top: 1rem;
+                margin-bottom: 4rem;
 
                 span
                 {
@@ -114,6 +180,7 @@ body
             #div-btn
             {
                 @extend %display-align;
+
                 button
                 {
                     width: 20%;
@@ -151,30 +218,60 @@ body
         #section-image
         {
             width: 100%;
-            height: 50%;
+            min-height: 30%;
             @extend %display-align;
             background-color: #00000080;
-            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.473);
+            box-shadow: 0 0 6px 3px rgba(0,0,0,0.75);
             overflow: hidden;
             line-height: 1;
+
             img
             {
-                width: 80%;
+                width: 50%;
                 object-fit: cover;
+                transition: all 300ms;
+            }
+            img:hover
+            {
+                transform: scale(1.2) rotate(20deg);
             }
         }
 
     }
 
-}
-
-
-
-@media screen and (min-width: 1023px)
-{
-    main
+    @media screen and (min-width: 1023px)
     {
-        flex-direction: row;
+        main
+        {
+            flex-direction: row;
+
+            #section-texts
+            {
+                width: 600px;
+            }
+
+            #section-image
+            {
+                @extend %display-align;
+                width:50%;
+                height: 100%;
+                box-shadow: 0 12px 6px 3px rgba(0,0,0,0.75);
+                img
+                {
+                    width: 600px;
+                }
+                img:hover
+                {
+                    transform: scale(1.7) rotate(10deg);
+                }
+            }
+        }
     }
+    
 }
+
+
+
+
+// npx sass --watch ./styles/store.scss ./styles/output-store.css
 
