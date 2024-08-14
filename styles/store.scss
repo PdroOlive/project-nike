@@ -78,6 +78,7 @@ body
             background: #ffffff94;
             backdrop-filter: blur(5px);
             position: fixed;
+            scale: 0.6;
             top: 71px;
             left: 0;
             transition: all 300ms;
@@ -242,20 +243,69 @@ body
             visibility: hidden;
             opacity: 0;
             transition: all 300ms;
-            div:first-child
+
+            #div-content-modal
             {
                 width: 65%;
-                height: 40%;
                 padding-inline: 2rem;
                 padding-bottom: 2rem;
                 background-color: #ffffff80;
                 backdrop-filter: blur(10px);
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
+                gap: 2rem;
                 align-content: space-between;
                 justify-items: center;
                 box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.384);
-                div:nth-child(2)
+
+                section
+                {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    div:first-child
+                    {
+                        p
+                        {
+                            font-size: 1.8rem;
+                            font-weight: 500;
+                        }
+                        span
+                        {
+                            font-size: 1.2rem;
+                        }
+
+                    }
+                    div:last-child
+                    {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        button
+                        {
+                            font-size: 1.7rem;
+                            background: #000;
+                            border: none;
+                            color: #fff;
+                            border-radius: 0px 5px 5px 0px;
+                            width: 2rem;
+                            
+                        }
+                        button:first-child
+                        {
+                            border-radius: 5px 0 0 5px;
+                        }
+                        span
+                        {
+                            font-size: 1.5rem;
+                            padding-inline: 1rem;
+                        }
+                    }
+                }
+
+                div
                 {
                     width: 100%;
                     display: grid;
@@ -369,7 +419,7 @@ body
             }
             #section-modal
             {
-                div:first-child
+                #div-content-modal
                 {
                     width: 600px;
                 }

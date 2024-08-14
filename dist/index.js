@@ -3,6 +3,7 @@ const headerField = document.getElementById("header-field");
 let navField = document.querySelector("#header-field nav");
 const mainField = document.getElementById("main-field");
 const modalField = document.getElementById("section-modal");
+const itemsModal = document.getElementById("items-modal");
 const cart = [];
 headerField.onclick = (event) => {
     const nikeBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".nike-btn");
@@ -28,6 +29,28 @@ headerField.onclick = (event) => {
     }
 };
 mainField.onclick = (event) => {
+    const addBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".add-cart-btn");
+    if (addBtn) {
+        const name = addBtn.getAttribute("data-name");
+        const price = Number(addBtn.getAttribute("data-price"));
+        let itemFilter = cart.find(item => item.name === name);
+        if (itemFilter) {
+            itemFilter.quantity += 1;
+        }
+        else {
+            cart.push({
+                name,
+                price,
+                quantity: 1
+            });
+        }
+    }
+};
+const updateItems = () => {
+    itemsModal.innerHTML = ``;
+    cart.map(item => {
+        const contentItem = document.createElement("section");
+    });
 };
 modalField.onclick = (event) => {
     const closeModalBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".close-modal-btn");
