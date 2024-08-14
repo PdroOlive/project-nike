@@ -26,7 +26,7 @@ body #header-field nav ul li::after {
   transition: transform 0.3s ease-out;
 }
 
-body main #section-modal #div-content-modal div div button, body main #section-modal #div-content-modal div form button {
+body main #section-modal #div-content-modal div:nth-child(3) div button, body main #section-modal #div-content-modal div:nth-child(3) form button {
   border: none;
   height: 3.3rem;
   width: 8rem;
@@ -59,6 +59,14 @@ body #header-field {
   z-index: 3;
   top: 0;
 }
+body #header-field div {
+  cursor: pointer;
+}
+body #header-field h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #333;
+}
 body #header-field nav {
   visibility: hidden;
   opacity: 0;
@@ -67,7 +75,7 @@ body #header-field nav {
   backdrop-filter: blur(5px);
   position: fixed;
   scale: 0.6;
-  top: 71px;
+  top: 73px;
   left: 0;
   transition: all 300ms;
   z-index: 2;
@@ -103,6 +111,7 @@ body #header-field nav ul li:last-child::after {
 body #header-field button {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 body #header-field button i {
   font-size: 2rem;
@@ -124,7 +133,7 @@ body main #section-texts {
   padding-bottom: 5rem;
   padding-inline: 1rem;
 }
-body main #section-texts h1 {
+body main #section-texts h2 {
   font-size: 4.7rem;
   font-weight: 500;
   color: #333;
@@ -207,13 +216,15 @@ body main #section-modal #div-content-modal section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 1rem;
 }
 body main #section-modal #div-content-modal section div:first-child p {
   font-size: 1.8rem;
   font-weight: 500;
 }
 body main #section-modal #div-content-modal section div:first-child span {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 body main #section-modal #div-content-modal section div:last-child {
   display: flex;
@@ -234,17 +245,27 @@ body main #section-modal #div-content-modal section div:last-child button:first-
 body main #section-modal #div-content-modal section div:last-child span {
   font-size: 1.5rem;
   padding-inline: 1rem;
+  font-weight: 500;
 }
-body main #section-modal #div-content-modal div {
+body main #section-modal #div-content-modal div:nth-child(3) {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
 }
-body main #section-modal #div-content-modal div form {
+body main #section-modal #div-content-modal div:nth-child(3) span {
   justify-self: flex-end;
-  padding-bottom: 3rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #fff;
+  background: #000;
+  padding-inline: 1rem;
 }
-body main #section-modal #div-content-modal div form input {
+body main #section-modal #div-content-modal div:nth-child(3) form {
+  justify-self: flex-end;
+  padding-bottom: 1rem;
+}
+body main #section-modal #div-content-modal div:nth-child(3) form input {
   background-color: #000;
   color: white;
   border: none;
@@ -253,39 +274,39 @@ body main #section-modal #div-content-modal div form input {
   font-weight: 500;
   font-size: 1.4rem;
 }
-body main #section-modal #div-content-modal div form input:focus {
+body main #section-modal #div-content-modal div:nth-child(3) form input:focus {
   outline: none;
 }
-body main #section-modal #div-content-modal div form button {
+body main #section-modal #div-content-modal div:nth-child(3) form button {
   background-color: #000;
   color: white;
 }
-body main #section-modal #div-content-modal div form button:hover {
+body main #section-modal #div-content-modal div:nth-child(3) form button:hover {
   background-color: white;
   color: #000;
   border: 1px solid #000;
 }
-body main #section-modal #div-content-modal div div {
+body main #section-modal #div-content-modal div:nth-child(3) div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-body main #section-modal #div-content-modal div div button {
+body main #section-modal #div-content-modal div:nth-child(3) div button {
   background: #fff;
   width: 30%;
 }
-body main #section-modal #div-content-modal div div button:last-child {
+body main #section-modal #div-content-modal div:nth-child(3) div button:last-child {
   background: #000;
   color: white;
   width: 50%;
 }
-body main #section-modal #div-content-modal div div button:first-child:hover {
+body main #section-modal #div-content-modal div:nth-child(3) div button:first-child:hover {
   background: #000;
   color: white;
   border: 1px solid white;
 }
-body main #section-modal #div-content-modal div div button:last-child:hover {
+body main #section-modal #div-content-modal div:nth-child(3) div button:last-child:hover {
   background: #fff;
   color: #000;
   border: 1px solid #000;
@@ -297,14 +318,34 @@ body main #section-image {
   box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   line-height: 1;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 500ms;
+  perspective: 1000px;
 }
-body main #section-image img {
+body main #section-image div {
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main #section-image div:first-child {
+  z-index: 1;
+}
+body main #section-image div:first-child img {
   width: 50%;
   object-fit: cover;
   transition: all 300ms;
 }
-body main #section-image img:hover {
+body main #section-image div:first-child img:hover {
   transform: scale(1.2) rotate(20deg);
+}
+body main #section-image div:last-child {
+  transform: rotateY(180deg);
 }
 @media screen and (min-width: 1023px) {
   body main {
@@ -321,10 +362,10 @@ body main #section-image img:hover {
     height: 100%;
     box-shadow: 0 12px 6px 3px rgba(0, 0, 0, 0.75);
   }
-  body main #section-image img {
+  body main #section-image div:first-child img {
     width: 600px;
   }
-  body main #section-image img:hover {
+  body main #section-image div:first-child img:hover {
     transform: scale(1.7) rotate(10deg);
   }
 }

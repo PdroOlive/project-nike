@@ -68,8 +68,16 @@ body
         position: fixed;
         z-index: 3;
         top: 0;
-        
-
+        div
+        {
+            cursor: pointer;
+        }
+        h1
+        {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #333;
+        }
         nav
         {
             visibility: hidden;
@@ -79,7 +87,7 @@ body
             backdrop-filter: blur(5px);
             position: fixed;
             scale: 0.6;
-            top: 71px;
+            top: 73px;
             left: 0;
             transition: all 300ms;
             z-index: 2;
@@ -130,7 +138,7 @@ body
         {
             background: transparent;
             border: none;
-
+            cursor: pointer;
             i
             {
                 font-size: 2rem;
@@ -160,7 +168,7 @@ body
             
 
 
-            h1
+            h2
             {
                 font-size: 4.7rem;
                 font-weight: 500;
@@ -264,6 +272,7 @@ body
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    padding-bottom: 1rem;
 
                     div:first-child
                     {
@@ -274,7 +283,8 @@ body
                         }
                         span
                         {
-                            font-size: 1.2rem;
+                            font-size: 1.4rem;
+                            font-weight: 500;
                         }
 
                     }
@@ -301,20 +311,30 @@ body
                         {
                             font-size: 1.5rem;
                             padding-inline: 1rem;
+                            font-weight: 500;
                         }
                     }
                 }
 
-                div
+                div:nth-child(3)
                 {
                     width: 100%;
                     display: grid;
                     grid-template-columns: repeat(1, 1fr);
+                    gap: 2rem;
+                    span
+                    {
+                        justify-self: flex-end;
+                        font-size: 1.6rem;
+                        font-weight: 500;
+                        color: #fff;
+                        background: #000;
+                        padding-inline: 1rem;
+                    }
                     form
                     {
                         justify-self: flex-end;
-                        
-                        padding-bottom: 3rem;
+                        padding-bottom: 1rem;
                         input
                         {
                             background-color: #000;
@@ -393,17 +413,43 @@ body
             overflow: hidden;
             line-height: 1;
 
-            img
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 500ms;
+            perspective: 1000px;
+
+            div
             {
-                width: 50%;
-                object-fit: cover;
-                transition: all 300ms;
+                position: absolute;
+                max-width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
-            img:hover
+
+            div:first-child
             {
-                transform: scale(1.2) rotate(20deg);
+                z-index: 1;
+                img
+                {
+                    width: 50%;
+                    object-fit: cover;
+                    transition: all 300ms;
+                }
+                img:hover
+                {
+                    transform: scale(1.2) rotate(20deg);
+                }
+            }
+            div:last-child
+            {
+                transform: rotateY(180deg);
             }
         }
+        
 
     }
 
@@ -430,13 +476,17 @@ body
                 width:50%;
                 height: 100%;
                 box-shadow: 0 12px 6px 3px rgba(0,0,0,0.75);
-                img
+                div:first-child
                 {
-                    width: 600px;
-                }
-                img:hover
-                {
-                    transform: scale(1.7) rotate(10deg);
+                    img
+                    {
+                        width: 600px;
+                    }
+                    img:hover
+                    {
+                        transform: scale(1.7) rotate(10deg);
+                    }
+
                 }
             }
         }

@@ -4,6 +4,8 @@ let navField = document.querySelector("#header-field nav");
 const mainField = document.getElementById("main-field");
 const modalField = document.getElementById("section-modal");
 const itemsModal = document.getElementById("items-modal");
+const totalField = document.getElementById("total");
+const sectionImage = document.getElementById("section-image");
 const cart = [];
 headerField.onclick = (event) => {
     const nikeBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".nike-btn");
@@ -44,26 +46,43 @@ mainField.onclick = (event) => {
                 quantity: 1
             });
         }
+        updateItems();
+    }
+    let isClicked = false;
+    const detalisBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".details-btn");
+    if (detalisBtn && detalisBtn.innerText === "DETALHES") {
+        sectionImage.style.transform = `rotateY(180deg)`;
+        detalisBtn.innerHTML = `TÊNIS`;
+        return;
+    }
+    else if (detalisBtn && detalisBtn.innerText === "TÊNIS") {
+        sectionImage.style.transform = `rotateY(0)`;
+        detalisBtn.innerHTML = `DETALHES`;
     }
 };
 const updateItems = () => {
     itemsModal.innerHTML = ``;
-    cart.map(item => {
+    let total = 0;
+    cart.forEach(item => {
+        const currentPrice = item.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         const contentItem = document.createElement("section");
         contentItem.innerHTML =
             `
             <div>
-                <p>name</p>
-                <span>qtd</span>
+                <p>${item.name}</p>
+                <span>${currentPrice}</span>
             </div>
             <div>
-                <button>-</button>
-                <span>0</span>
-                <button>+</button>
+                <button class="remove-qtd">-</button>
+                <span>${item.quantity}</span>
+                <button class="add-qtd">+</button>
             </div>
         `;
+        total += (item.price * item.quantity);
         itemsModal === null || itemsModal === void 0 ? void 0 : itemsModal.appendChild(contentItem);
     });
+    const currentTotal = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    totalField.innerHTML = `Total : ${currentTotal}`;
 };
 modalField.onclick = (event) => {
     const closeModalBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".close-modal-btn");
@@ -71,5 +90,20 @@ modalField.onclick = (event) => {
         modalField.style.visibility = `hidden`;
         modalField.style.opacity = `0`;
         modalField.style.transform = `scale(1.3)`;
+    }
+    const remove = (event === null || event === void 0 ? void 0 : event.target).closest(".remove-qtd");
+    if (remove) {
+        cart.forEach(item => {
+            item.quantity -= 1;
+            if (item.quantity < 1) {
+                item.quantity = 0;
+            }
+        });
+        updateItems();
+    }
+    const add = (event === null || event === void 0 ? void 0 : event.target).closest(".add-qtd");
+    if (add) {
+        cart.forEach(item => item.quantity += 1);
+        updateItems();
     }
 };
