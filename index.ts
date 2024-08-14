@@ -79,10 +79,22 @@ const updateItems = () =>
     cart.map(item => 
     {
         const contentItem = document.createElement("section");
+        contentItem!.innerHTML = 
+        `
+            <div>
+                <p>name</p>
+                <span>qtd</span>
+            </div>
+            <div>
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+            </div>
+        `;
 
-    }
-    )
-
+        itemsModal?.appendChild(contentItem)
+    });
+    
 }
 
 modalField!.onclick = (event:MouseEvent | null) =>

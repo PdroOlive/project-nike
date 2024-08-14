@@ -50,6 +50,19 @@ const updateItems = () => {
     itemsModal.innerHTML = ``;
     cart.map(item => {
         const contentItem = document.createElement("section");
+        contentItem.innerHTML =
+            `
+            <div>
+                <p>name</p>
+                <span>qtd</span>
+            </div>
+            <div>
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+            </div>
+        `;
+        itemsModal === null || itemsModal === void 0 ? void 0 : itemsModal.appendChild(contentItem);
     });
 };
 modalField.onclick = (event) => {
