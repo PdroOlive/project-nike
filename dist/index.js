@@ -5,7 +5,7 @@ const mainField = document.getElementById("main-field");
 const modalField = document.getElementById("section-modal");
 const itemsModal = document.getElementById("items-modal");
 const totalField = document.getElementById("total");
-const sectionImage = document.getElementById("section-image");
+const card = document.getElementById("card");
 const cart = [];
 headerField.onclick = (event) => {
     const nikeBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".nike-btn");
@@ -51,12 +51,12 @@ mainField.onclick = (event) => {
     let isClicked = false;
     const detalisBtn = (event === null || event === void 0 ? void 0 : event.target).closest(".details-btn");
     if (detalisBtn && detalisBtn.innerText === "DETALHES") {
-        sectionImage.style.transform = `rotateY(180deg)`;
+        card.style.transform = `rotateY(180deg)`;
         detalisBtn.innerHTML = `TÊNIS`;
         return;
     }
     else if (detalisBtn && detalisBtn.innerText === "TÊNIS") {
-        sectionImage.style.transform = `rotateY(0)`;
+        card.style.transform = `rotateY(0)`;
         detalisBtn.innerHTML = `DETALHES`;
     }
 };

@@ -4,7 +4,7 @@ const mainField = document.getElementById("main-field");
 const modalField = document.getElementById("section-modal");
 const itemsModal = document.getElementById("items-modal");
 const totalField = document.getElementById("total");
-const sectionImage = document.getElementById("section-image");
+const card = document.getElementById("card");
 interface nikeCartItems
 {
     name: string | null,
@@ -73,13 +73,13 @@ mainField!.onclick = (event:MouseEvent | null) =>
     const detalisBtn: HTMLElement | null = (event?.target as HTMLElement).closest(".details-btn");
     if(detalisBtn && detalisBtn.innerText === "DETALHES")
     {
-        sectionImage!.style.transform = `rotateY(180deg)`;
+        card!.style.transform = `rotateY(180deg)`;
         detalisBtn!.innerHTML = `TÊNIS`;
         return;
     }
     else if(detalisBtn && detalisBtn.innerText === "TÊNIS")
     {
-        sectionImage!.style.transform = `rotateY(0)`;
+        card!.style.transform = `rotateY(0)`;
         detalisBtn!.innerHTML = `DETALHES`;
     }
 }
